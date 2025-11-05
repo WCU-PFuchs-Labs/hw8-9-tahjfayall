@@ -11,9 +11,13 @@ public class TestGP
       
       Generation gen = new Generation (500, 3, fileName);
       
-      gen.evalAll();
-      gen.printBestTree();
-      gen.printBestFitness();
+      for (int i = 1; i <= 50; i++)
+      {
+         gen.evalAll();
+         gen.printBestTree();
+         gen.printBestFitness();
+         gen = evolveNewGeneration(gen);
+      }
       
       ArrayList<GPTree> topTen = gen.getTopTen();
       System.out.print("Top Ten fitness values: ");
@@ -26,5 +30,11 @@ public class TestGP
          }
       }
       System.out.println();
+   }
+   
+   private static Generation evolveNewGeneration(Generation currGen)
+   {
+      currGen.evolve();
+      return currGen;
    }
 }

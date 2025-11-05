@@ -13,6 +13,7 @@ public class TestGP
       
       for (int i = 1; i <= 50; i++)
       {
+         System.out.println("Generation " + i + ":");
          gen.evalAll();
          gen.printBestTree();
          gen.printBestFitness();
